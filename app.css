@@ -1,23 +1,43 @@
-.image-grid {
-  display: grid;
-  /* Creates 4 equal columns */
-  grid-template-columns: repeat(4, 1fr); 
-  /* Adds a 10px gap between images */
-  grid-gap: 10px; 
-  max-width: 1000px;
-  margin: 0 auto;
+/* The Modal (background) */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1000; 
+  padding-top: 50px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+  cursor: zoom-out;
 }
 
-.image-grid img {
-  width: 100%;
-  height: auto;
+/* Modal Content (The Image) */
+.modal-content {
+  margin: auto;
   display: block;
-  border-radius: 8px; /* Optional: rounds the corners */
+  max-width: 90%;
+  max-height: 85vh;
+  border-radius: 5px;
 }
 
-/* Responsive adjustment for mobile screens */
-@media (max-width: 768px) {
-  .image-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 per row on tablets/phones */
-  }
+/* Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Add a pointer cursor to the grid images so users know they are clickable */
+.image-grid img {
+  cursor: zoom-in;
+  transition: 0.3s;
+}
+
+.image-grid img:hover {
+  opacity: 0.7;
 }
