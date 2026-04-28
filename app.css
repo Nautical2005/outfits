@@ -1,3 +1,27 @@
+.image-grid {
+  display: grid;
+  /* Creates 4 equal columns */
+  grid-template-columns: repeat(4, 1fr); 
+  /* Adds a 10px gap between images */
+  grid-gap: 10px; 
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.image-grid img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px; /* Optional: rounds the corners */
+}
+
+/* Responsive adjustment for mobile screens */
+@media (max-width: 768px) {
+  .image-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 per row on tablets/phones */
+  }
+}
+
 /* The Modal (background) */
 .modal {
   display: none; 
