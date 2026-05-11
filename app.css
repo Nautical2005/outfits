@@ -1,67 +1,153 @@
-.image-grid {
-  display: grid;
-  /* Creates 4 equal columns */
-  grid-template-columns: repeat(4, 1fr); 
-  /* Adds a 10px gap between images */
-  grid-gap: 10px; 
-  max-width: 1000px;
-  margin: 0 auto;
+/* General Reset & Styles */
+:root {
+    --bg-color: #0f0f0f;
+    --card-bg: #1a1a1a;
+    --accent-color: #00ff88;
+    --text-main: #ffffff;
+    --text-dim: #a0a0a0;
 }
 
-.image-grid img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 8px; /* Optional: rounds the corners */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: 'Inter', -apple-system, sans-serif;
+    margin: 0;
+    line-height: 1.6;
 }
 
-/* Responsive adjustment for mobile screens */
-@media (max-width: 768px) {
-  .image-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 per row on tablets/phones */
-  }
+/* Header & Nav */
+header {
+    padding: 2rem 5%;
+    background: rgba(15, 15, 15, 0.9);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
-/* The Modal (background) */
-.modal {
-  display: none; 
-  position: fixed; 
-  z-index: 1000; 
-  padding-top: 50px; 
-  left: 0;
-  top: 0;
-  width: 100%; 
-  height: 100%; 
-  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
-  cursor: zoom-out;
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* Modal Content (The Image) */
-.modal-content {
-  margin: auto;
-  display: block;
-  max-width: 90%;
-  max-height: 85vh;
-  border-radius: 5px;
+.logo {
+    font-size: 1.5rem;
+    font-weight: 900;
+    letter-spacing: -1px;
 }
 
-/* Close Button */
-.close {
-  position: absolute;
-  top: 15px;
-  right: 35px;
-  color: #f1f1f1;
-  font-size: 40px;
-  font-weight: bold;
-  cursor: pointer;
+.logo span {
+    color: var(--accent-color);
 }
 
-/* Add a pointer cursor to the grid images so users know they are clickable */
-.image-grid img {
-  cursor: zoom-in;
-  transition: 0.3s;
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
 }
 
-.image-grid img:hover {
-  opacity: 0.7;
+.nav-links a {
+    color: var(--text-main);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
+/* Hero Section */
+.featured {
+    height: 60vh;
+    background: linear-gradient(to right, rgba(0,0,0,0.8), transparent), url('https://via.placeholder.com/1200x600');
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+    margin-bottom: 3rem;
+}
+
+.badge {
+    background: var(--accent-color);
+    color: black;
+    padding: 4px 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+}
+
+/* Grid Layout */
+.grid-container {
+    padding: 0 5%;
+}
+
+.music-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+/* Cards */
+.music-card {
+    background: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.music-card:hover {
+    transform: translateY(-10px);
+}
+
+.album-art {
+    position: relative;
+    aspect-ratio: 1 / 1;
+}
+
+.album-art img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.play-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.music-card:hover .play-overlay {
+    opacity: 1;
+}
+
+.card-info {
+    padding: 1.5rem;
+}
+
+.genre {
+    color: var(--accent-color);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.excerpt {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+}
+
+.btn {
+    background: var(--accent-color);
+    border: none;
+    padding: 12px 24px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 1rem;
 }
